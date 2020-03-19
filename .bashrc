@@ -63,7 +63,6 @@ mkcd () {
 msa="35.228.159.44"
 
 alias ll='ls -alh --color=auto'
-alias cal='cal -m'
 alias in='sudo apt-get install'
 alias iny='sudo apt-get install $1 -y'
 alias rmv='sudo apt-get remove'
