@@ -1,0 +1,9 @@
+.idea/
+build/
+
+*.tar
+*.tar.gz
+*.exe
+*.bin
+
+
