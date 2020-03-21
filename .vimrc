@@ -5,6 +5,8 @@ set mouse=a	" Enable mouse
 set autoindent	" New lines inherit the indentation of previous lines.
 set expandtab	" Convert tabs to spaces.
 set undofile    " Save undo history
+set undodir=~/.vim/undodir
+
 " -----------------------------------------------------------------------------
 " Searching
 set hlsearch  " Highlighting
