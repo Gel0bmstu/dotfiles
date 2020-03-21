@@ -4,7 +4,7 @@ set number 	" Show line numbers
 set mouse=a	" Enable mouse 
 set autoindent	" New lines inherit the indentation of previous lines.
 set expandtab	" Convert tabs to spaces.
-
+set undofile    " Save undo history
 " -----------------------------------------------------------------------------
 " Searching
 set hlsearch  " Highlighting
