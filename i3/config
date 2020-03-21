@@ -40,7 +40,6 @@ exec_always  feh --bg-scale ~/bg.png
 # WAN enable
 exec dhcpcd
 
-
 # Polybar launch 
 exec_always --no-startup-id /home/gel0/.config/polybar/launch.sh
 
@@ -55,8 +54,8 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 # -------------------------------------------------------------------------------------------------------------
 
 # Mount drive for 'gel0' user and 'gel0' group
-exec sudo mount -o uid=1000,gid=985 /dev/sda4 /media/c
-exec sudo mount -o uid=1000,gid=985 /dev/sda5 /media/d
+exec sudo mount -o uid=1000,gid=1000 /dev/sda4 /media/c
+exec sudo mount -o uid=1000,gid=1000 /dev/sda5 /media/d
 
 # Print screens scripts
 bindsym --release ctrl+Print exec /media/d/bashScripts/screenshots/areaPrtScr
@@ -225,8 +224,8 @@ bindsym $mod+r mode "resize"
 #}
 
 # Control screen brightness
-bindsym XF86MonBrightnessDown exec xbacklight -dec 5
-bindsym XF86MonBrightnessUp exec xbacklight -inc 5
+bindsym XF86MonBrightnessDown exec light -U 5
+bindsym XF86MonBrightnessUp exec light -A 5
 
 #bindsym XF86AudioRaiseVolume exec amixer -q sset Master 3%+
 #bindsym XF86AudioLowerVolume exec amixer -q sset Master 3%-

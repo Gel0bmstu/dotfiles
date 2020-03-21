@@ -61,11 +61,11 @@ module-margin-right = 1
 ;font-2 = Font Awesome 5 Brands:pixelsize=10;0
 
 font-0 = Hack:pixelsize=10;2
-font-1 = "Wuncon Siji:pixelsize=10;3"
-font-2 = "Weather Icons:size=12;2"
-font-3 = Font Awesome 5 Free Solid:pixelsize=7;1
-font-4 = Font Awesome 5 Brands:pixelsize=10;0
-font-5 = siji:pixelsize=12;0
+font-1 = Wuncon Siji:pixelsize=10;3
+font-2 = Font Awesome 5 Free Solid:pixelsize=7;2
+font-3 = Font Awesome 5 Brands:pixelsize=10;2
+font-4 = Weather Icons:size=10;2
+;font-5 = siji:pixelsize=12;0
 
 ; #########################################################
 ; 		         Set modules
@@ -73,7 +73,7 @@ font-5 = siji:pixelsize=12;0
 
 modules-left = bspwm i3 sep2 filesystem sep2 
 ;modules-center = 
-modules-right = sep2 moex3 sep2 moex2 sep2 moex1 sep2 weather sep2 xbacklight sep2 pulseaudio sep2 xkeyboard sep2 memory sep2 cpu sep2 temperature sep2 wlan eth sep2 battery sep2 date sep2
+modules-right = sep2 moex3 sep2 moex2 sep2 moex1 sep2 weather sep2 backlight-acpiv sep2 pulseaudio sep2 xkeyboard sep2 memory sep2 cpu sep2 temperature sep2 wlan eth sep2 battery sep2 date sep2
 
 tray-position = right
 tray-padding = 0
@@ -160,10 +160,12 @@ animation-discharging-framerate = 750
 
 ; ---------------------------------------------------------
 
-[module/backlight-acpi]
+[module/backlight-acpiv]
 inherit = module/xbacklight
 type = internal/backlight
 card = intel_backlight
+scroll-up = sudo light -A 5
+scroll-down = sudo light -U 5
 
 ; ---------------------------------------------------------
 
@@ -260,7 +262,7 @@ label-mounted0 = %{F#2aa198}/%{F-}:
 label-mounted1 = %{F#2aa198}C%{F-}:
 label-mounted2 = %{F#2aa198}D%{F-}:
 
-mount-0 = /
+mount-0 = /home
 mount-1 = /media/c
 mount-2 = /media/d
 
@@ -516,8 +518,8 @@ content-background = ${colors.background-alt}
 type = custom/script
 exec = "/media/d/bashScripts/weather.sh"
 interval = 600
-;label-font = 5
-label-active-font = 6
+label-font = 5
+;label-active-font = 6
 ;label = %{T1} %output% %{T-}
 
 ; ---------------------------------------------------------

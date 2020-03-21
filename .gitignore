@@ -1,9 +1,2 @@
-.idea/
-build/
-
-*.tar
-*.tar.gz
-*.exe
-*.bin
-
-
+.CLion2019.3/
+.GoLand2019.3/

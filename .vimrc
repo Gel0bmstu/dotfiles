@@ -12,7 +12,6 @@ set smartcase " Automatically switch search to case-sensitive
               " when search query contains an uppercase letter.
 
 " Press Space to turn off highlighting and clear any message already displayed.
-nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
 
 " -----------------------------------------------------------------------------
 " Reading
@@ -20,4 +19,8 @@ nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
 syntax enable
 set wrap  " Wrap lines
 set title " Show file title
-set spell spelllang=en_us,ru_ru " Enable spellchecking
+
+" Disable search highlight by Space
+nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
+" Enable spell check by F5
+nnoremap <silent> <F5> :setlocal spell! spelllang=en_us,ru_ru<CR>

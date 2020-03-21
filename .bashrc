@@ -54,18 +54,32 @@ else
 fi
 
 # Functions
+
+# Make dir and cd into
 mkcd () {
-  mkdir "$1" &&
-  cd "$1";
+  mkdir "$1" && cd "$1";
+}
+
+# Get files count
+gfc () {
+  if [[ "$1" == '' ]]
+    then ls -la | wc -l
+  else
+    ls -la "$1" | wc -l
+  fi
 }
 
 # Global variables
 msa="35.228.159.44"
+smb="//192.168.88.1/cloud"
 
 alias ll='ls -alh --color=auto'
 alias in='sudo apt-get install'
 alias iny='sudo apt-get install $1 -y'
+alias sin='sudo snap install'
 alias rmv='sudo apt-get remove'
+alias upd='sudo apt-get update -y'
+alias upg='sudo apt-get upgrade -y'
 
 # VPN 
 alias vpn='sudo openvpn /media/d/vpn/vpn.ovpn'
@@ -88,12 +102,16 @@ editor=vim
 alias pbc='sudo "$editor" ~/.config/polybar/config'
 alias i3c='sudo "$editor" ~/.config/i3/config'
 alias brc='sudo "$editor" ~/.bashrc'
+alias vrc='sudo "$editor" ~/.vimrc'
 
 # Get quotes
-alias quote='go run /media/d/bashScripts/moex_quotes/moex_quotes.go -t '
+alias moex_quote='go run /media/d/bashScripts/moex_quotes/moex_quotes.go -t '
+
+# Mount smb share folder
+alias msb='sudo mount.cifs $smb /media/smb/ -o user=fam,pass=1337,iocharset=utf8,vers=2.0'
 
 # Connect to my vps
-alias cts='ssh leshikne@$msa'
+alias cts='ssh gel0@$msa'
 
 # Programs
 alias ld='sudo lazydocker'
@@ -109,4 +127,15 @@ parse_git_branch () {
 }
 
 PS1="\[${BOLD}${RED}\]\u\[$CYAN\]@\[$GREEN\]\h\[$ORANGE\]: \[$BASE\]\w\[$BASE0\]\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" >> \")\[$BLUE\]\$(parse_git_branch) \[$BASE3\]\[$RESET\]\$ "
+
+# enable programmable completion features (you don't need to enable
+# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
+# sources /etc/bash.bashrc).
+if ! shopt -oq posix; then
+  if [ -f /usr/share/bash-completion/bash_completion ]; then
+    . /usr/share/bash-completion/bash_completion
+  elif [ -f /etc/bash_completion ]; then
+    . /etc/bash_completion
+  fi
+fi
 
