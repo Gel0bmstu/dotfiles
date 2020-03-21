@@ -60,6 +60,22 @@ mkcd () {
   mkdir "$1" && cd "$1";
 }
 
+gcp() {
+  if [[ "$1" == '' ]]
+    then git add .
+  else 
+    git add "$1"
+  fi
+
+  git commit -m "$2"
+  
+  if [[ "$3" == '' ]]
+    then git push origin master
+  else 
+    git push origin "$3"
+  fi
+}
+
 # Get files count
 gfc () {
   if [[ "$1" == '' ]]
