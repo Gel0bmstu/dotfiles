@@ -60,16 +60,27 @@ mkcd () {
   mkdir "$1" && cd "$1";
 }
 
-gcp() {
-  if [[ "$1" == '' ]]
-    then git add .
+gcp () {
+  if [ "$1" == ''] ||! [ -f "$1" ];
+    then 
+      git add . 
+      if [ "$1" == "" ] || [ $1 == "" ];
+      then
+        echo 'Please, set commit name in "" quotation mark' ;
+        exit 0
+      fi 
+      git commit -m $1
   else 
-    git add "$1"
+    git add $1 
+    if [ "$2" == "" ] || [ $2 == "" ];
+    then
+      echo 'Please, set commit name in "" quotation mark' ;
+      exit 0
+    fi 
+    git commit $2
   fi
-
-  git commit -m "$2"
   
-  if [[ "$3" == '' ]]
+  if [[ "$3" == '' ]];
     then git push origin master
   else 
     git push origin "$3"
@@ -96,6 +107,7 @@ alias sin='sudo snap install'
 alias rmv='sudo apt-get remove'
 alias upd='sudo apt-get update -y'
 alias upg='sudo apt-get upgrade -y'
+alias view='sudo nomacs' 
 
 # VPN 
 alias vpn='sudo openvpn /media/d/vpn/vpn.ovpn'
@@ -123,8 +135,9 @@ alias vrc='sudo "$editor" ~/.vimrc'
 # Get quotes
 alias moex_quote='go run /media/d/bashScripts/moex_quotes/moex_quotes.go -t '
 
-# Mount smb share folder
+# Mount/unmount smb share folder
 alias msb='sudo mount.cifs $smb /media/smb/ -o user=fam,pass=1337,iocharset=utf8,vers=2.0'
+alias umsb='sudo umount //192.168.88.1/cloud'
 
 # Connect to my vps
 alias cts='ssh gel0@$msa'

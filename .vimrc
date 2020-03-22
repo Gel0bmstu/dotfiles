@@ -6,7 +6,9 @@ set autoindent	" New lines inherit the indentation of previous lines.
 set expandtab	" Convert tabs to spaces.
 set undofile    " Save undo history
 set undodir=~/.vim/undodir
-
+set showcmd     " Show commands
+set linebreak
+set dy=lastline
 " -----------------------------------------------------------------------------
 " Searching
 set hlsearch  " Highlighting
@@ -22,6 +24,8 @@ syntax enable
 set wrap  " Wrap lines
 set title " Show file title
 
+" -----------------------------------------------------------------------------
+" Shourtcuts
 " Disable search highlight by Space
 nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
 " Enable spell check by F5

@@ -147,8 +147,14 @@ ramp-capacity-3 = 
 ramp-capacity-4 = 
 ramp-capacity-foreground = ${colors.foreground-alt}
 
-animation-charging-0 = "⚡ "
-;animation-charging-1 = 
+animation-charging-0 = " "
+;animation-charging-0 = " "
+;animation-charging-0 = " "
+;animation-charging-1 = " "
+;animation-charging-2 = " "
+;animation-charging-3 = " "
+;animation-charging-4 = " "
+
 animation-charging-foreground = ${colors.foreground-alt}
 animation-charging-framerate = 750
 
@@ -164,8 +170,9 @@ animation-discharging-framerate = 750
 inherit = module/xbacklight
 type = internal/backlight
 card = intel_backlight
-scroll-up = sudo light -A 5
-scroll-down = sudo light -U 5
+enable-scroll = true
+scroll-up = sudo /usr/local/bin/light -A 5
+scroll-down = sudo /usr/local/bin/light -U 5
 
 ; ---------------------------------------------------------
 
@@ -254,20 +261,20 @@ label-indicator-background = ${colors.secondary}
 
 [module/filesystem]
 type = internal/fs
-interval = 25
+interval = 10
 
-;format-mounted = <label-mounted0> <label-mounted1> <label-mounted2>
-
-label-mounted0 = %{F#2aa198}/%{F-}:
-label-mounted1 = %{F#2aa198}C%{F-}:
-label-mounted2 = %{F#2aa198}D%{F-}:
+;format-mounted = <label-mounted0> <label-mounted1>
 
 mount-0 = /home
 mount-1 = /media/c
 mount-2 = /media/d
+mount-3 = /media/f
+mount-4 = /media/smb
+
 
 label-mounted = %{F#2aa198}%mountpoint%%{F-}: %percentage_used%%
-label-unmounted = %mountpoint% not mounted
+;label-mounted = %{F#2aa198}%mountpoint%%{F-}: %percentage_used%%
+label-unmounted =
 label-unmounted-foreground = ${colors.foreground-alt}
 
 ; ---------------------------------------------------------
@@ -353,8 +360,15 @@ label-song-ellipsis = true
 [module/xbacklight]
 type = internal/xbacklight
 
-format = <label> <bar>
-label =  %percentage%%
+format = <ramp> <label> <bar>
+label =  %percentage%%
+enable-scroll = true
+
+ramp-0 = 🌕
+ramp-1 = 🌔
+ramp-2 = 🌓
+ramp-3 = 🌒
+ramp-4 = 🌑
 
 bar-width = 5
 bar-indicator = #
@@ -377,7 +391,7 @@ format-connected =  <label-connected>
 ;format-connected-underline = #9f78e1
 label-connected = %essid%
 
-format-disconnected =
+format-disconnected = 
 ;format-disconnected = <label-disconnected>
 ;format-disconnected-underline = ${self.format-connected-underline}
 ;label-disconnected = %ifname% disconnected
@@ -395,9 +409,13 @@ ramp-signal-foreground = ${colors.foreground-alt}
 [module/pulseaudio]
 type = internal/pulseaudio
 
-format-volume = <label-volume> <bar-volume>
-label-volume =  %percentage%%
+format-volume = <ramp-volume> <label-volume> <bar-volume>
+label-volume = %percentage%%
 label-volume-foreground = ${root.foreground}
+
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
 
 label-muted =   muted
 label-muted-foreground = #666
