@@ -136,8 +136,8 @@ alias vrc='sudo "$editor" ~/.vimrc'
 alias moex_quote='go run /media/d/bashScripts/moex_quotes/moex_quotes.go -t '
 
 # Mount/unmount smb share folder
-alias msb='sudo mount.cifs $smb /media/smb/ -o user=fam,pass=1337,iocharset=utf8,vers=2.0'
-alias umsb='sudo umount //192.168.88.1/cloud'
+alias msb='sudo mount.cifs $smb /media/smb/ -o user=guest,iocharset=utf8,vers=2.0'
+alias umsb='sudo umount $smb'
 
 # Connect to my vps
 alias cts='ssh gel0@$msa'
@@ -168,3 +168,5 @@ if ! shopt -oq posix; then
   fi
 fi
 
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
