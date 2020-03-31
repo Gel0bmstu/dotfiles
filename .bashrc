@@ -99,6 +99,7 @@ gfc () {
 # Global variables
 msa="35.228.159.44"
 smb="//192.168.88.1/cloud"
+dfp="/home/gel0/dotfiles"
 
 alias ll='ls -alh --color=auto'
 alias in='sudo apt-get install'
@@ -107,17 +108,21 @@ alias sin='sudo snap install'
 alias rmv='sudo apt-get remove'
 alias upd='sudo apt-get update -y'
 alias upg='sudo apt-get upgrade -y'
+
 alias view='sudo nomacs' 
+alias copy='xclip -selection c'
 
 # VPN 
 alias vpn='sudo openvpn /media/d/vpn/vpn.ovpn'
 alias vpnitc='sudo openvpn ~/vpn/solovyov.ovpn'
+alias vpnfr='sudo openvpn /media/d/vpn/vpnbook-fr1-tcp80'
 
 # CD to work
 alias itcw='cd /media/d/work/itc/gl100/'
 alias rsaw='cd /media/d/work/rosa/'
 alias stud='cd /media/d/102'
 alias tech='cd /media/d/tp/4'
+alias dwnl='cd /media/d/downloads'
 
 # Wifi settings
 alias wfm='sudo wifi-menu'
@@ -131,6 +136,7 @@ alias pbc='sudo "$editor" ~/.config/polybar/config'
 alias i3c='sudo "$editor" ~/.config/i3/config'
 alias brc='sudo "$editor" ~/.bashrc'
 alias vrc='sudo "$editor" ~/.vimrc'
+alias drc='sudo "$editor" ~/.dunstrc'
 
 # Get quotes
 alias moex_quote='go run /media/d/bashScripts/moex_quotes/moex_quotes.go -t '

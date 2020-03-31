@@ -54,7 +54,7 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 # -------------------------------------------------------------------------------------------------------------
 
 # Mount drive for 'gel0' user and 'gel0' group
-exec sudo mount -o uid=1000,gid=1000 /dev/sda4 /media/c
+# exec sudo mount -o uid=1000,gid=1000 /dev/sda4 /media/c
 exec sudo mount -o uid=1000,gid=1000 /dev/sda5 /media/d
 
 # Print screens scripts
