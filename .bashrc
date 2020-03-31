@@ -100,6 +100,7 @@ gfc () {
 msa="35.228.159.44"
 smb="//192.168.88.1/cloud"
 dfp="/home/gel0/dotfiles"
+bsp='/media/d/bashScripts'
 
 alias ll='ls -alh --color=auto'
 alias in='sudo apt-get install'
@@ -122,7 +123,7 @@ alias itcw='cd /media/d/work/itc/gl100/'
 alias rsaw='cd /media/d/work/rosa/'
 alias stud='cd /media/d/102'
 alias tech='cd /media/d/tp/4'
-alias dwnl='cd /media/d/downloads'
+alias dwnl=''
 
 # Wifi settings
 alias wfm='sudo wifi-menu'
@@ -150,6 +151,7 @@ alias cts='ssh gel0@$msa'
 
 # Programs
 alias ld='sudo lazydocker'
+alias gcp='python3 $bsp/gcp.py'
 
 # Autocd by typing only path to dir
 shopt -s autocd
