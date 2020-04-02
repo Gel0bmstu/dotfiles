@@ -9,6 +9,9 @@ set undodir=~/.vim/undodir
 set showcmd     " Show commands
 set linebreak
 set dy=lastline
+set clipboard=unnamed
+set tabstop=2 shiftwidth=2 expandtab
+set hidden
 
 " -----------------------------------------------------------------------------
 " Searching
@@ -29,13 +32,19 @@ set title " Show file title
 nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
 " Enable spell check by F5
 nnoremap <silent> <F5> :setlocal spell! spelllang=en_us,ru_ru<CR>
+nmap <F6> :NERDTreeToggle<CR>
 
 " Specify a directory for plugins
-" - For Neovim: stdpath('data') . '/plugged'
-" - Avoid using standard Vim directory names like 'plugin'
 call plug#begin('~/.vim/plugged')
 
-" Make sure you use single quotes
+" Autocomplete code
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+" File tree plugin 
+Plug 'scrooloose/nerdTree'
+
+" Quoting change auround the word
+Plug 'tpope/vim-surround'
 
 " Markdown preview plug 
 Plug 'iamcco/markdown-preview.vim', { 'do': { -> mkdp#util#install() } }
@@ -54,7 +63,7 @@ Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
 
 " Using a non-master branch
-Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
+" Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
 
 " Using a tagged release; wildcard allowed (requires git 1.9.2 or above)
 Plug 'fatih/vim-go', { 'tag': '*' }
@@ -65,10 +74,5 @@ Plug 'nsf/gocode', { 'tag': 'v.20150303', 'rtp': 'vim' }
 " Plugin outside ~/.vim/plugged with post-update hook
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 
-" Unmanaged plugin (manually installed and updated)
-Plug '~/my-prototype-plugin'
-
-" Initialize plugin system
+" List ends here. Plugins become visible to Vim after this call.
 call plug#end()
-
-
