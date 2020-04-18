@@ -1,4 +1,5 @@
 .CLion2019.3/
 .GoLand2019.3/
 
-.vim/plugged/
+.vim/plugged/*
+.vim/undodir/*

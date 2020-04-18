@@ -34,11 +34,22 @@ nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
 nnoremap <silent> <F5> :setlocal spell! spelllang=en_us,ru_ru<CR>
 nmap <F6> :NERDTreeToggle<CR>
 
+map <C-t><up> :tabr<cr>
+map <C-t><down> :tabl<cr>
+map <C-t><left> :tabp<cr>
+map <C-t><right> :tabn<cr>
+
 " Specify a directory for plugins
 call plug#begin('~/.vim/plugged')
 
+" Autosave
+Plug 'chrisbra/vim-autosave'
+
 " Autocomplete code
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+" Autosave plug
+Plug '907th/vim-auto-save'
 
 " File tree plugin 
 Plug 'scrooloose/nerdTree'

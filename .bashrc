@@ -60,42 +60,6 @@ mkcd () {
   mkdir "$1" && cd "$1";
 }
 
-gcp () {
-  if [ "$1" == ''] ||! [ -f "$1" ];
-    then 
-      git add . 
-      if [ "$1" == "" ] || [ $1 == "" ];
-      then
-        echo 'Please, set commit name in "" quotation mark' ;
-        exit 0
-      fi 
-      git commit -m $1
-  else 
-    git add $1 
-    if [ "$2" == "" ] || [ $2 == "" ];
-    then
-      echo 'Please, set commit name in "" quotation mark' ;
-      exit 0
-    fi 
-    git commit $2
-  fi
-  
-  if [[ "$3" == '' ]];
-    then git push origin master
-  else 
-    git push origin "$3"
-  fi
-}
-
-# Get files count
-gfc () {
-  if [[ "$1" == '' ]]
-    then ls -la | wc -l
-  else
-    ls -la "$1" | wc -l
-  fi
-}
-
 # Global variables
 GOPATH="~/go"
 
@@ -104,6 +68,7 @@ smb="//192.168.88.1/cloud"
 dfp="/home/gel0/dotfiles"
 bsp='/media/d/bashScripts'
 
+alias l='ls -l --color=auto'
 alias ll='ls -alh --color=auto'
 alias in='sudo apt-get install'
 alias iny='sudo apt-get install $1 -y'
@@ -115,7 +80,7 @@ alias upg='sudo apt-get upgrade -y'
 
 alias view='sudo nomacs' 
 alias copy='xclip -selection c'
-
+alias e='$editor'
 # alias cal='gcal --starting-day=1'
 
 # VPN 
@@ -129,9 +94,17 @@ alias rsaw='cd /media/d/work/rosa/'
 alias stud='cd /media/d/102'
 alias tech='cd /media/d/tp/4'
 alias dwnl='cd /media/d/downloads'
+alias pswd='cd ~/.password-store'
 
 # Wifi settings
 alias wfm='sudo wifi-menu'
+
+# Passwords control
+alias p="pass insert -m"
+alias pp='pass git push origin master'
+alias pe='pass edit'
+alias pg='pass generate -c'
+alias pc='pass -c'
 
 # Config files edit
 
@@ -184,3 +157,53 @@ fi
 
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+#
+# RVM profile
+#
+# /etc/profile.d/rvm.sh # sh extension required for loading.
+#
+
+if
+  [ -n "${BASH_VERSION:-}" -o -n "${ZSH_VERSION:-}" ] &&
+  test "`\command \ps -p $$ -o ucomm=`" != dash &&
+  test "`\command \ps -p $$ -o ucomm=`" != sh
+then
+  [[ -n "${rvm_stored_umask:-}" ]] || export rvm_stored_umask=$(umask)
+
+  # Load user rvmrc configurations, if exist
+  for file in "/etc/rvmrc" "$HOME/.rvmrc"
+  do
+    [[ -s "$file" ]] && source $file
+  done
+  if
+    [[ -n "${rvm_prefix:-}" ]] &&
+    [[ -s "${rvm_prefix}/.rvmrc" ]] &&
+    [[ ! "$HOME/.rvmrc" -ef "${rvm_prefix}/.rvmrc" ]]
+  then
+    source "${rvm_prefix}/.rvmrc"
+  fi
+
+  # Load RVM if it is installed, try user then root install
+  if
+    [[ -s "$rvm_path/scripts/rvm" ]]
+  then
+    source "$rvm_path/scripts/rvm"
+  elif
+    [[ -s "$HOME/.rvm/scripts/rvm" ]]
+  then
+    true ${rvm_path:="$HOME/.rvm"}
+    source "$HOME/.rvm/scripts/rvm"
+  elif
+    [[ -s "/usr/local/rvm/scripts/rvm" ]]
+  then
+    true ${rvm_path:="/usr/local/rvm"}
+    source "/usr/local/rvm/scripts/rvm"
+  fi
+
+  # Add $rvm_bin_path to $PATH if necessary. Make sure this is the last PATH variable change
+  if [[ -n "${rvm_bin_path}" && ! ":${PATH}:" == *":${rvm_bin_path}:"* ]]
+  then PATH="${PATH}:${rvm_bin_path}"
+  fi
+fi
+

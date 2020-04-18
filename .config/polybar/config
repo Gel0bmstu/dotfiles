@@ -56,16 +56,13 @@ padding-right = 2
 module-margin-left = 1
 module-margin-right = 1
 
-;font-0 = fixed:pixelsize=10;1
-;font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
-;font-2 = Font Awesome 5 Brands:pixelsize=10;0
+;font-size = 10;
 
-font-0 = Hack:pixelsize=10;2
-font-1 = Wuncon Siji:pixelsize=10;3
+font-0 = Hack:pixelsize=8.5;2
+font-1 = Wuncon Siji:pixelsize=8.5;2
 font-2 = Font Awesome 5 Free Solid:pixelsize=7;2
-font-3 = Font Awesome 5 Brands:pixelsize=10;2
-font-4 = Weather Icons:size=10;2
-;font-5 = siji:pixelsize=12;0
+font-3 = Font Awesome 5 Brands:pixelsize=8.5;2
+font-4 = Weather Icons:size=8.5;2
 
 ; #########################################################
 ; 		         Set modules
@@ -170,11 +167,8 @@ animation-discharging-framerate = 750
 inherit = module/xbacklight
 type = internal/backlight
 card = intel_backlight
-:exec = light -G
-;enable-scroll = true
 scroll-up = exec light -A 5
 scroll-down = exec light -U 5
-;interval=1
 
 ; ---------------------------------------------------------
 
@@ -221,7 +215,7 @@ type = internal/date
 interval = 1
 
 date = "%d-%m-%y"
-date-alt = "%d-%m-%y"
+date-alt = "%a %d-%m-%y"
 
 time = %H:%M
 time-alt = %H:%M:%S
@@ -563,7 +557,7 @@ interval = 15
 [module/moex3]
 type = custom/script
 
-exec = "/media/d/bashScripts/moex_quotes/moex_quotes.sh -t MTSS"
+exec = "/media/d/bashScripts/moex_quotes/moex_quotes.sh -t AFLT"
 interval = 15
 
 ; ---------------------------------------------------------

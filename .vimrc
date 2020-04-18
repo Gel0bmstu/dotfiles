@@ -37,6 +37,9 @@ call plug#begin('~/.vim/plugged')
 
 " Make sure you use single quotes
 
+" Autosave plug
+Plug '907th/vim-auto-save'
+
 " Markdown preview plug 
 Plug 'iamcco/markdown-preview.vim', { 'do': { -> mkdp#util#install() } }
 
