@@ -12,6 +12,7 @@ set dy=lastline
 set clipboard=unnamed
 set tabstop=2 shiftwidth=2 expandtab
 set hidden
+set clipboard+=unnamedplus
 
 " -----------------------------------------------------------------------------
 " Searching
@@ -38,6 +39,18 @@ map <C-t><up> :tabr<cr>
 map <C-t><down> :tabl<cr>
 map <C-t><left> :tabp<cr>
 map <C-t><right> :tabn<cr>
+
+" " Copy to clipboard
+vnoremap  <leader>y  "+y
+nnoremap  <leader>Y  "+yg_
+nnoremap  <leader>y  "+y
+nnoremap  <leader>yy  "+yy
+
+" " Paste from clipboard
+nnoremap <leader>p "+p
+nnoremap <leader>P "+P
+vnoremap <leader>p "+p
+vnoremap <leader>P "+P
 
 " Specify a directory for plugins
 call plug#begin('~/.vim/plugged')

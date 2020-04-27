@@ -62,12 +62,12 @@ mkcd () {
 
 # Global variables
 GOPATH="~/go"
+bsp='/media/d/bashScripts'
 
 msa="35.228.159.44"
 smb="//192.168.88.1/cloud"
-dfp="/home/gel0/dotfiles"
-bsp='/media/d/bashScripts'
 
+alias grep='grep $1 --color=auto'
 alias l='ls -l --color=auto'
 alias ll='ls -alh --color=auto'
 alias in='sudo apt-get install'
@@ -78,10 +78,15 @@ alias rmv='sudo apt-get remove $1 -y'
 alias upd='sudo apt-get update -y'
 alias upg='sudo apt-get upgrade -y'
 
+
 alias view='sudo nomacs' 
 alias copy='xclip -selection c'
+alias upload="curl -F 'sprunge=<-' http://sprunge.us"
+
 alias e='$editor'
 # alias cal='gcal --starting-day=1'
+
+alias h='history'
 
 # VPN 
 alias vpn='sudo openvpn /media/d/vpn/vpn.ovpn'
@@ -94,7 +99,10 @@ alias rsaw='cd /media/d/work/rosa/'
 alias stud='cd /media/d/102'
 alias tech='cd /media/d/tp/4'
 alias dwnl='cd /media/d/downloads'
-alias pswd='cd ~/.password-store'
+alias pswd='cd /media/d/.password-store'
+alias dotf='cd ~/dotfiles'
+alias bshs='cd /media/d/bashScripts'
+alias prts='cd /media/d/screenshots'
 
 # Wifi settings
 alias wfm='sudo wifi-menu'
