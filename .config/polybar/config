@@ -262,7 +262,7 @@ interval = 10
 ;format-mounted = <label-mounted0> <label-mounted1>
 
 mount-0 = /home
-mount-1 = /media/c
+mount-1 = /
 mount-2 = /media/d
 mount-3 = /media/f
 mount-4 = /media/smb

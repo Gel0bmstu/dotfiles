@@ -67,7 +67,7 @@ bsp='/media/d/bashScripts'
 msa="35.228.159.44"
 smb="//192.168.88.1/cloud"
 
-alias grep='grep $1 --color=auto'
+alias g='grep $1 --color=auto'
 alias l='ls -l --color=auto'
 alias ll='ls -alh --color=auto'
 alias in='sudo apt-get install'
@@ -77,7 +77,8 @@ alias srmv='sudo snap remove $1'
 alias rmv='sudo apt-get remove $1 -y'
 alias upd='sudo apt-get update -y'
 alias upg='sudo apt-get upgrade -y'
-
+alias tr='trans :ru --brief $1'
+alias te='trans :en --brief $1'
 
 alias view='sudo nomacs' 
 alias copy='xclip -selection c'
@@ -87,6 +88,7 @@ alias e='$editor'
 # alias cal='gcal --starting-day=1'
 
 alias h='history'
+alias hg='history | grep $1 --color=auto' 
 
 # VPN 
 alias vpn='sudo openvpn /media/d/vpn/vpn.ovpn'
