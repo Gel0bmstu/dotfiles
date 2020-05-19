@@ -77,8 +77,10 @@ alias srmv='sudo snap remove $1'
 alias rmv='sudo apt-get remove $1 -y'
 alias upd='sudo apt-get update -y'
 alias upg='sudo apt-get upgrade -y'
-alias tr='trans :ru --brief $1'
-alias te='trans :en --brief $1'
+alias trb='trans :ru --brief $1'
+alias teb='trans :en --brief $1'
+alias tr='trans :ru $1'
+alias te='trans :en $1'
 
 alias view='sudo nomacs' 
 alias copy='xclip -selection c'
@@ -173,47 +175,47 @@ fi
 #
 # /etc/profile.d/rvm.sh # sh extension required for loading.
 #
-
-if
-  [ -n "${BASH_VERSION:-}" -o -n "${ZSH_VERSION:-}" ] &&
-  test "`\command \ps -p $$ -o ucomm=`" != dash &&
-  test "`\command \ps -p $$ -o ucomm=`" != sh
-then
-  [[ -n "${rvm_stored_umask:-}" ]] || export rvm_stored_umask=$(umask)
-
-  # Load user rvmrc configurations, if exist
-  for file in "/etc/rvmrc" "$HOME/.rvmrc"
-  do
-    [[ -s "$file" ]] && source $file
-  done
-  if
-    [[ -n "${rvm_prefix:-}" ]] &&
-    [[ -s "${rvm_prefix}/.rvmrc" ]] &&
-    [[ ! "$HOME/.rvmrc" -ef "${rvm_prefix}/.rvmrc" ]]
-  then
-    source "${rvm_prefix}/.rvmrc"
-  fi
-
-  # Load RVM if it is installed, try user then root install
-  if
-    [[ -s "$rvm_path/scripts/rvm" ]]
-  then
-    source "$rvm_path/scripts/rvm"
-  elif
-    [[ -s "$HOME/.rvm/scripts/rvm" ]]
-  then
-    true ${rvm_path:="$HOME/.rvm"}
-    source "$HOME/.rvm/scripts/rvm"
-  elif
-    [[ -s "/usr/local/rvm/scripts/rvm" ]]
-  then
-    true ${rvm_path:="/usr/local/rvm"}
-    source "/usr/local/rvm/scripts/rvm"
-  fi
-
-  # Add $rvm_bin_path to $PATH if necessary. Make sure this is the last PATH variable change
-  if [[ -n "${rvm_bin_path}" && ! ":${PATH}:" == *":${rvm_bin_path}:"* ]]
-  then PATH="${PATH}:${rvm_bin_path}"
-  fi
-fi
+# 
+# if
+#   [ -n "${BASH_VERSION:-}" -o -n "${ZSH_VERSION:-}" ] &&
+#   test "`\command \ps -p $$ -o ucomm=`" != dash &&
+#   test "`\command \ps -p $$ -o ucomm=`" != sh
+# then
+#   [[ -n "${rvm_stored_umask:-}" ]] || export rvm_stored_umask=$(umask)
+# 
+#   # Load user rvmrc configurations, if exist
+#   for file in "/etc/rvmrc" "$HOME/.rvmrc"
+#   do
+#     [[ -s "$file" ]] && source $file
+#   done
+#   if
+#     [[ -n "${rvm_prefix:-}" ]] &&
+#     [[ -s "${rvm_prefix}/.rvmrc" ]] &&
+#     [[ ! "$HOME/.rvmrc" -ef "${rvm_prefix}/.rvmrc" ]]
+#   then
+#     source "${rvm_prefix}/.rvmrc"
+#   fi
+# 
+#   # Load RVM if it is installed, try user then root install
+#   if
+#     [[ -s "$rvm_path/scripts/rvm" ]]
+#   then
+#     source "$rvm_path/scripts/rvm"
+#   elif
+#     [[ -s "$HOME/.rvm/scripts/rvm" ]]
+#   then
+#     true ${rvm_path:="$HOME/.rvm"}
+#     source "$HOME/.rvm/scripts/rvm"
+#   elif
+#     [[ -s "/usr/local/rvm/scripts/rvm" ]]
+#   then
+#     true ${rvm_path:="/usr/local/rvm"}
+#     source "/usr/local/rvm/scripts/rvm"
+#   fi
+# 
+#   # Add $rvm_bin_path to $PATH if necessary. Make sure this is the last PATH variable change
+#   if [[ -n "${rvm_bin_path}" && ! ":${PATH}:" == *":${rvm_bin_path}:"* ]]
+#   then PATH="${PATH}:${rvm_bin_path}"
+#   fi
+# fi
 

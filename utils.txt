@@ -1,0 +1,8 @@
+git
+xclip
+feh
+passwd
+curl
+p7zip-full
+unrar
+unzip
