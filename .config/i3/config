@@ -61,6 +61,7 @@ exec sudo mount -o uid=1000,gid=1000 /dev/sda5 /media/d
 bindsym --release ctrl+Print exec /media/d/bashScripts/screenshots/areaPrtScr
 bindsym --release $mod+Print exec /media/d/bashScripts/screenshots/prtScrUploader
 bindsym --release Print exec /media/d/bashScripts/screenshots/prtScr
+bindsym --release ctrl+Shift+Print exec flameshot gui
 # -------------------------------------------------------------------------------------------------------------
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
