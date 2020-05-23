@@ -67,20 +67,31 @@ bsp='/media/d/bashScripts'
 msa="35.228.159.44"
 smb="//192.168.88.1/cloud"
 
+# System commands
 alias g='grep $1 --color=auto'
 alias l='ls -l --color=auto'
 alias ll='ls -alh --color=auto'
+
+# Apt-get commands
 alias in='sudo apt-get install'
 alias iny='sudo apt-get install $1 -y'
-alias sin='sudo snap install'
-alias srmv='sudo snap remove $1'
 alias rmv='sudo apt-get remove $1 -y'
 alias upd='sudo apt-get update -y'
 alias upg='sudo apt-get upgrade -y'
+
+# Snap commands
+alias sin='sudo snap install'
+alias srmv='sudo snap remove $1'
+
+# Translate commands
 alias trb='trans :ru --brief $1'
 alias teb='trans :en --brief $1'
 alias tr='trans :ru $1'
 alias te='trans :en $1'
+
+# Docker commands
+alias dpsa='sudo docker ps -a'
+alias dps='sudo docker ps'
 
 alias view='sudo nomacs' 
 alias copy='xclip -selection c'
@@ -143,6 +154,12 @@ alias cts='ssh gel0@$msa'
 # Programs
 alias ld='sudo lazydocker'
 alias gcp='python3 $bsp/gcp.py'
+
+# Bash history settings
+HISTTIMEFORMAT="%h %d %H:%M:%S " # History format
+HISTSIZE=10000                   # Max fixstory command store
+HISTFILESIZE=10000               # Max history line store
+PROMPT_COMMAND='history -a'      # Save commands in history after execution
 
 # Autocd by typing only path to dir
 shopt -s autocd
