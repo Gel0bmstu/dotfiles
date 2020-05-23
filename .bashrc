@@ -71,6 +71,7 @@ smb="//192.168.88.1/cloud"
 alias g='grep $1 --color=auto'
 alias l='ls -l --color=auto'
 alias ll='ls -alh --color=auto'
+alias t='tail -n 20'
 
 # Apt-get commands
 alias in='sudo apt-get install'
