@@ -72,6 +72,10 @@ alias g='grep $1 --color=auto'
 alias l='ls -l --color=auto'
 alias ll='ls -alh --color=auto'
 alias t='tail -n 20'
+alias uprt='sudo netstat -ntulp | grep LISTEN'
+alias fprt='sudo netstat -ntulp | grep -v LISTEN'
+alias sctl='sudo systemctl'
+alias jctl='sudo journalctl'
 
 # Apt-get commands
 alias in='sudo apt-get install'
@@ -135,12 +139,12 @@ alias pc='pass -c'
 # Set text editor
 editor=nvim
 
-alias pbc='sudo "$editor" ~/.config/polybar/config'
-alias i3c='sudo "$editor" ~/.config/i3/config'
-alias brc='sudo "$editor" ~/.bashrc'
-alias vrc='sudo "$editor" ~/.vimrc'
-alias nvrc='sudo "$editor" ~/.config/nvim/init.vim'
-alias drc='sudo "$editor" ~/.dunstrc'
+alias pbc='"$editor" ~/.config/polybar/config'
+alias i3c='"$editor" ~/.config/i3/config'
+alias brc='"$editor" ~/.bashrc'
+alias vrc='"$editor" ~/.vimrc'
+alias nvrc='"$editor" ~/.config/nvim/init.vim'
+alias drc='"$editor" ~/.dunstrc'
 
 # Get quotes
 alias moex_quote='go run /media/d/bashScripts/moex_quotes/moex_quotes.go -t '
