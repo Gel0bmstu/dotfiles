@@ -74,7 +74,13 @@ alias ll='ls -alh --color=auto'
 alias t='tail -n 20'
 alias uprt='sudo netstat -ntulp | grep LISTEN'
 alias fprt='sudo netstat -ntulp | grep -v LISTEN'
+
 alias sctl='sudo systemctl'
+alias sctlst='sudo systemctl start'
+alias sctlrs='sudo systemctl restart'
+alias sctlrl='sudo systemctl reload'
+alias sctlss='sudo systemctl status'
+
 alias jctl='sudo journalctl'
 
 # Apt-get commands
