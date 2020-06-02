@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 import subprocess
+import requests
 import os
 
 # Varalbes
@@ -21,31 +22,36 @@ make_link_to_dotfile = '/bin/ln -s /home/{User}/dotfiles/{File} /home/{User}/{Fi
 
 # ---------------------------------------------------------------------------------------------
 
-# Install utils
-utils = open("utils.txt", "r").read().split('\n')
+# Install utiles
+def install_utiles():
 
-subprocess.run(update_command)
-subprocess.run(upgrade_command)
-for u in utils:
-    if u[0] == '#' or u == '':
-        continue
+    utils = requests.get('http://35.228.159.44/index.php/s/rLpiLoTyRTgDyLn/download')
+    # utils = open("utils.txt", "r").read().split('\n')
 
-    print(u'\nTry to insatll {} ...'.format(u))
-    subprocess.run(install_command + [u])
+    subprocess.call(update_command)
+    subprocess.call(upgrade_command)
+    for u in utils.content.decode('UTF-8').split('\n'):
+        if u[0] == '#' or u == '':
+            continue
+
+        print(u'\nTry to insatll {} ...'.format(u))
+        subprocess.call(install_command + [u])
 
 # Install enviroment
-subprocess.check_output(get_dotfiles_https)
+def install_env():
+    subprocess.check_output(get_dotfiles_https)
 
-output = subprocess.check_output(get_dotfilest_list)
-files = output.decode('UTF-8').split()
+    output = subprocess.check_output(get_dotfilest_list)
+    files = output.decode('UTF-8').split()
 
-subprocess.check_output(make_old_directory) 
+    if not os.path.exists('/home/{}/.old'.format(user)):
+        subprocess.check_output(make_old_directory) 
 
-for f in files:
-    if f == '.' or f == '..':
-        continue
+    for f in files:
+        if f == '.' or f == '..' or f == '.git':
+            continue
 
-    if f[0] == '.':
-        if os.path.exists('/home/{}/{}'.format(user, f)):
-            subprocess.check_output(mv_old_file_to_dir.format(f, user).split())
-        subprocess.check_output(make_link_to_dotfile.format(File=f, User=user).split())
+        if f[0] == '.':
+            if os.path.exists('/home/{}/{}'.format(user, f)):
+                subprocess.check_output(mv_old_file_to_dir.format(f, user).split())
+            subprocess.check_output(make_link_to_dotfile.format(File=f, User=user).split())

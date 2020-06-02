@@ -1,0 +1,5 @@
+[user]
+	email = leshikne@gmail.com
+	name = Gel0bmstu
+[core]
+	excludesfile = ~/.gitignore_global
