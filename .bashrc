@@ -85,12 +85,14 @@ alias sctlss='sudo systemctl status'
 
 alias jctl='sudo journalctl'
 
-# Apt-get commands
-alias in='sudo apt-get install'
-alias iny='sudo apt-get install $1 -y'
-alias rmv='sudo apt-get remove $1 -y'
-alias upd='sudo apt-get update -y'
-alias upg='sudo apt-get upgrade -y'
+# Packet manager commands
+pmng='apt-get'
+
+alias in='sudo $pmng install'
+alias iny='sudo $pmng install $1 -y'
+alias rmv='sudo $pmng remove $1 -y'
+alias upd='sudo $pmng update -y'
+alias upg='sudo $pmng upgrade -y'
 
 # Snap commands
 alias sin='sudo snap install'
