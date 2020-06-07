@@ -70,10 +70,12 @@ smb="//192.168.88.1/cloud"
 # System commands
 alias g='grep $1 --color=auto'
 alias l='ls -l --color=auto'
-alias ll='ls -alh --color=auto'
 alias t='tail -n 20'
-alias uprt='sudo netstat -ntulp | grep LISTEN'
+alias ll='ls -alh --color=auto'
+alias rld='. ~/.bashrc'
+alias uprt='sudo netstat -ntulp | g LISTEN'
 alias fprt='sudo netstat -ntulp | grep -v LISTEN'
+alias sudo='sudo '
 
 alias sctl='sudo systemctl'
 alias sctlst='sudo systemctl start'
@@ -129,6 +131,7 @@ alias pswd='cd /media/d/.password-store'
 alias dotf='cd ~/dotfiles'
 alias bshs='cd /media/d/bashScripts'
 alias prts='cd /media/d/screenshots'
+alias prjc='cd /media/d/projects'
 
 # Wifi settings
 alias wfm='sudo wifi-menu'
