@@ -35,6 +35,9 @@ nnoremap <silent> <F5> :setlocal spell! spelllang=en_us,ru_ru<CR>
 " - Avoid using standard Vim directory names like 'plugin'
 call plug#begin('~/.vim/plugged')
 
+" Move lines
+nnoremap <A-down> :m .+1<CR>==
+nnoremap <A-up> :m .-2<CR>==
 " Make sure you use single quotes
 
 " Autosave plug
