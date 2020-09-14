@@ -1,5 +1,3 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =3
-let g:netrw_dirhist_1='/etc/X11/xorg.conf.d'
-let g:netrw_dirhist_2='/home/gel0'
-let g:netrw_dirhist_3='/etc'
+let g:netrw_dirhistcnt =1
+let g:netrw_dirhist_1='/home/omv/vsos_java/lucene4/.git'
