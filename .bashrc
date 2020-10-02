@@ -210,8 +210,12 @@ fi
 
 alias ptch='git init && git add . && git commit -qm "init" && git checkout -b patch' 
 
-abp () { 
-        abb buildp && cd ./BUILD && cd $(ls -d */|head -n 1) && ptch
+abp () {
+        if echo $PWD | grep -q "BUILD"; then
+                ptbd="$(echo $PWD | grep -o -e '^.*/BUILD')"
+                cd "$ptbd/.."
+        fi
+        abb buildp && cd ./BUILD && cd $(ls -d * | head -n 1) && ptch
 }
 
 show_path () {

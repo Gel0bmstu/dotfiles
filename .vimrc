@@ -9,6 +9,7 @@ set undodir=~/.vim/undodir
 set showcmd     " Show commands
 set linebreak
 set dy=lastline
+set encoding=utf-8
 
 " -----------------------------------------------------------------------------
 " Searching
@@ -39,6 +40,8 @@ call plug#begin('~/.vim/plugged')
 nnoremap <A-down> :m .+1<CR>==
 nnoremap <A-up> :m .-2<CR>==
 " Make sure you use single quotes
+
+Plug 'ycm-core/YouCompleteMe'
 
 " Autosave plug
 Plug '907th/vim-auto-save'
