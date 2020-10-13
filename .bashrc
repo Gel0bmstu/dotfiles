@@ -221,8 +221,12 @@ fsfix () {
   sudo mount -o uid=1000,gid=1000 /dev/nvme0n1p8 /media/d
 }
 
-abp () { 
-        abb buildp && cd ./BUILD && cd $(ls -d */|head -n 1) && ptch
+abp () {
+        if echo $PWD | grep -q "BUILD"; then
+                ptbd="$(echo $PWD | grep -o -e '^.*/BUILD')"
+                cd "$ptbd/.."
+        fi
+        abb buildp && cd ./BUILD && cd $(ls -d * | head -n 1) && ptch
 }
 
 show_path () {
