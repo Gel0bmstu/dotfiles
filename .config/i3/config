@@ -17,22 +17,27 @@ font pango:DejaVu Sans Mono 8
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-#font pango:DejaVu Sans Mono 8
-
+#font pango:DejaVu Sans Mono 8s
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+# exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+
+exec xrdb -merge .Xresources
 
 # Hide title bar on top of the apps
 new_window pixel 1
-# default_border pixel 1
+default_border pixel 3
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
+
+# exec --no-startup-id "i3-msg 'workspace 1; append_layout /home/gel0/.i3/workspace-1.json'"
+# exec --no-startup-id "i3-msg 'workspace 2; append_layout /home/gel0/.i3/workspace-2.json'"
+# exec --no-startup-id "i3-msg 'workspace 3; append_layout /home/gel0/.i3/workspace-3.json'"
 
 #Desktop bg set
 exec_always  feh --bg-scale ~/bg.png
@@ -49,19 +54,26 @@ bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+bindsym XF86Favorites exec --no-startup-id systemctl suspend 
+
 
 # Custom scripts
 # -------------------------------------------------------------------------------------------------------------
 
 # Mount drive for 'gel0' user and 'gel0' group
 # exec sudo mount -o uid=1000,gid=1000 /dev/sda4 /media/c
-exec sudo mount -o uid=1000,gid=1000 /dev/sda5 /media/d
+exec sudo mount -o uid=1000,gid=1000 /dev/nvme0n1p8 /media/d
 
 # Print screens scripts
-bindsym --release ctrl+Print exec /media/d/bashScripts/screenshots/areaPrtScr
-bindsym --release $mod+Print exec /media/d/bashScripts/screenshots/prtScrUploader
-bindsym --release Print exec /media/d/bashScripts/screenshots/prtScr
+bindsym --release ctrl+Print exec /home/gel0/bashscripts/screenshots/areaPrtScr
+bindsym --release $mod+Print exec /home/gel0/bashscripts/screenshots/prtScrUploader
+bindsym --release Print exec /home/gel0/bashscripts/screenshots/prtScr
 bindsym --release ctrl+Shift+Print exec flameshot gui
+# bindsym $mod+n exec cd $SCREENSHOT_DIR
+
+# Dmenu pass script
+bindsym --release $mod+p exec /home/gel0/bashscripts/pass.sh
+
 # -------------------------------------------------------------------------------------------------------------
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -117,15 +129,12 @@ bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
-# monitor control
-bindsym $mod+Mod1+Up    exec '/media/d/bashScripts/miltiscreen -u'
-bindsym $mod+Mod1+Down  exec '/media/d/bashScripts/miltiscreen -d'
-bindsym $mod+Mod1+Left  exec '/media/d/bashScripts/miltiscreen -l'
-bindsym $mod+Mod1+Right exec '/media/d/bashScripts/miltiscreen -r'
+# windowed
+# for_window [title="Figure"] floating enable
 
 # program running
-bindsym $mod+Shift+p exec extcalc
-for_window [title="extcalc"] floating enable
+bindsym $mod+Shift+p exec speedcrunch
+for_window [class="SpeedCrunch"] floating enable
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -225,8 +234,8 @@ bindsym $mod+r mode "resize"
 #}
 
 # Control screen brightness
-bindsym XF86MonBrightnessDown exec light -U 5
-bindsym XF86MonBrightnessUp exec light -A 5
+bindsym XF86MonBrightnessDown exec sudo light -U 5
+bindsym XF86MonBrightnessUp exec sudo light -A 5
 
 #bindsym XF86AudioRaiseVolume exec amixer -q sset Master 3%+
 #bindsym XF86AudioLowerVolume exec amixer -q sset Master 3%-

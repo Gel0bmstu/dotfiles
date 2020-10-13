@@ -61,8 +61,13 @@ mkcd () {
 }
 
 # Global variables
-GOPATH="~/go"
-bsp='/media/d/bashScripts'
+GOPATH="/home/gel0/go"
+GOROOT="/usr/local/go"
+export PATH="$PATH:/usr/local/go/bin"
+export PASSWORD_STORE_DIR='/media/d/passwords'
+export SCREENSHOT_DIR='/media/d/screenshots'
+export DOTFILES_DIR='/home/gel0/dotfiles'
+export BASHSCRIPTS_DIR='/home/gel0/bashscripts'
 
 msa="35.228.159.44"
 smb="//192.168.88.1/cloud"
@@ -87,12 +92,13 @@ alias sctlel='sudo systemctl enable'
 alias sctldl='sudo systemctl disable'
 
 alias jctl='sudo journalctl'
+alias jctle='sudo journalctl -xb -p3'
 
 # Packet manager commands
-pmng='dnf'
+pmng='apt'
 
 alias in='sudo $pmng install'
-alias iny='sudo $pmng install $1 -y'
+alias iny='sudo $pmng install $1 -ym'
 alias rmv='sudo $pmng remove $1 -y'
 alias upd='sudo $pmng update -y'
 alias upg='sudo $pmng upgrade -y'
@@ -104,16 +110,17 @@ alias sin='sudo snap install'
 alias srmv='sudo snap remove $1'
 
 # Translate commands
-alias trb='trans :ru --brief $1'
-alias teb='trans :en --brief $1'
-alias tr='trans :ru $1'
-alias te='trans :en $1'
+alias trb='trans :ru --brief "$@"'
+alias teb='trans :en --brief "$@"'
+alias tr='trans :ru "$@"'
+alias te='trans :en "$@"'
 
 # Docker commands
 alias dpsa='sudo docker ps -a'
 alias dps='sudo docker ps'
+alias rce="$BASHSCRIPTS_DIR/rosa_container_enter.sh"
 
-alias view='sudo nomacs' 
+alias view='feh -dFZ' 
 alias copy='xclip -selection c'
 alias upload="curl -F 'sprunge=<-' http://sprunge.us"
 
@@ -124,20 +131,19 @@ alias h='history'
 alias hg='history | grep $1 --color=auto' 
 
 # VPN 
-alias vpn='sudo openvpn /media/d/vpn/vpn.ovpn'
+alias vpn='sudo openvpn /home/gel0/vpn/vpn.ovpn'
 alias vpnitc='sudo openvpn ~/vpn/solovyov.ovpn'
 alias vpnfr='sudo openvpn /media/d/vpn/vpnbook-fr1-tcp80'
 
 # CD to dir
-alias itcw='cd /media/d/work/itc/gl100/'
 alias rsaw='cd /media/d/work/rosa/'
-alias stud='cd /media/d/102'
+alias stud='cd /media/d/112/'
 alias tech='cd /media/d/tp/4'
 alias dwnl='cd /media/d/downloads'
-alias pswd='cd /media/d/.password-store'
-alias dotf='cd ~/dotfiles'
-alias bshs='cd /media/d/bashScripts'
-alias prts='cd /media/d/screenshots'
+alias pswd="cd $PASSWORD_STORE_DIR"
+alias dotf="cd $DOTFILES_DIR"
+alias bshs="cd $BASHSCRIPTS_DIR"
+alias prts="cd $SCREENSHOT_DIR"
 alias prjc='cd /media/d/projects'
 
 # Wifi settings
@@ -153,7 +159,7 @@ alias pc='pass -c'
 # Config files edit
 
 # Set text editor
-editor=vim
+editor=nvim
 
 alias pbc='"$editor" ~/.config/polybar/config'
 alias i3c='"$editor" ~/.config/i3/config'
@@ -174,7 +180,6 @@ alias cts='ssh gel0@$msa'
 
 # Programs
 alias ld='sudo lazydocker'
-alias gcp='python3 $bsp/gcp.py'
 
 # Bash history settings
 HISTTIMEFORMAT="%h %d %H:%M:%S " # History format
@@ -192,7 +197,7 @@ parse_git_branch () {
   git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/\1$(parse_git_dirty)/"
 }
 
-PS1="\[${BOLD}${RED}\]\u\[$CYAN\]@\[$GREEN\]\h\[$ORANGE\]: \[$BASE\]\w\[$BASE0\]\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" >> \")\[$BLUE\]\$(parse_git_branch) \[$BASE3\]\[$RESET\]\$ "
+PS1="\[${BOLD}${RED}\]\u\[$CYAN\]@\[$GREEN\]\h\[$ORANGE\]: \[$BASE\]\w\[$BASE0\]\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" >> \")\[$BLUE\]\$(parse_git_branch) \[$BASE3\]\[$RESET\][\t]\n \$ "
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
@@ -209,6 +214,12 @@ fi
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 alias ptch='git init && git add . && git commit -qm "init" && git checkout -b patch' 
+
+fsfix () {
+  sudo umount /dev/nvme0n1p8 &&
+  sudo ntfsfix /dev/nvme0n1p8 &&
+  sudo mount -o uid=1000,gid=1000 /dev/nvme0n1p8 /media/d
+}
 
 abp () { 
         abb buildp && cd ./BUILD && cd $(ls -d */|head -n 1) && ptch

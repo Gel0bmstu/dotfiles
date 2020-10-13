@@ -70,7 +70,7 @@ font-4 = Weather Icons:size=8.5;2
 
 modules-left = bspwm i3 sep2 filesystem sep2 
 ;modules-center = 
-modules-right = sep2 moex3 sep2 moex2 sep2 moex1 sep2 weather sep2 backlight-acpiv sep2 pulseaudio sep2 xkeyboard sep2 memory sep2 cpu sep2 temperature sep2 wlan eth sep2 battery sep2 date sep2 
+modules-right = sep2 moex1 sep2 moex2 sep2 moex3 sep2 weather sep2 pulseaudio sep2 xkeyboard sep2 memory sep2 cpu sep2 temperature sep2 wlan eth sep2 battery sep2 date sep2 
 
 tray-position = right
 tray-padding = 0
@@ -119,7 +119,7 @@ margin-bottom = 5
 
 [module/battery]
 type = internal/battery
-battery = BAT1
+battery = BAT0
 adapter = ACAD
 full-at = 100
 
@@ -194,7 +194,7 @@ label = %percentage_used%%
 
 [module/eth]
 type = internal/network
-interface = enp2s0
+interface = enp5s0
 interval = 3.0
 
 format-connected-underline = #55aa55
@@ -530,7 +530,7 @@ content-background = ${colors.background-alt}
 
 [module/weather]
 type = custom/script
-exec = "/media/d/bashScripts/weather.sh"
+exec = "/home/gel0/bashscripts/weather.sh"
 interval = 600
 label-font = 5
 ;label-active-font = 6
@@ -541,7 +541,7 @@ label-font = 5
 [module/moex1]
 type = custom/script
 
-exec = "/media/d/bashScripts/moex_quotes/moex_quotes.sh -t SBERP"
+exec = "go run /home/gel0/bashscripts/moex_quotes/moex_quotes.go -t SBERP"
 interval = 15
 
 ; ---------------------------------------------------------
@@ -549,7 +549,7 @@ interval = 15
 [module/moex2]
 type = custom/script
 
-exec = "/media/d/bashScripts/moex_quotes/moex_quotes.sh -t TATNP"
+exec = "go run /home/gel0/bashscripts/moex_quotes/moex_quotes.go -t TATNP"
 interval = 15
 
 ; ---------------------------------------------------------
@@ -557,7 +557,7 @@ interval = 15
 [module/moex3]
 type = custom/script
 
-exec = "/media/d/bashScripts/moex_quotes/moex_quotes.sh -t AFLT"
+exec = "go run /home/gel0/bashscripts/moex_quotes/moex_quotes.go -t YNDX"
 interval = 15
 
 ; ---------------------------------------------------------
