@@ -229,10 +229,6 @@ abp () {
         abb buildp && cd ./BUILD && cd $(ls -d * | head -n 1) && ptch
 }
 
-show_path () {
-        echo $(pwd)
-}
-
 rmbl () {
         sudo rm -rf *.*.buildlog 
 }
