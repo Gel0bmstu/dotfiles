@@ -63,11 +63,12 @@ mkcd () {
 # Global variables
 GOPATH="/home/gel0/go"
 GOROOT="/usr/local/go"
-export PATH="$PATH:/usr/local/go/bin"
-export PASSWORD_STORE_DIR='/media/d/passwords'
-export SCREENSHOT_DIR='/media/d/screenshots'
-export DOTFILES_DIR='/home/gel0/dotfiles'
-export BASHSCRIPTS_DIR='/home/gel0/bashscripts'
+PATH="$PATH:/usr/local/go/bin"
+PASSWORD_STORE_DIR='/media/d/passwords'
+SCREENSHOT_DIR='/media/d/screenshots'
+DOTFILES_DIR='/home/gel0/dotfiles'
+BASHSCRIPTS_DIR='/home/gel0/bashscripts'
+NOTES_DIR='/home/gel0/notes'
 
 msa="35.228.159.44"
 smb="//192.168.88.1/cloud"
@@ -169,7 +170,7 @@ alias nvrc='"$editor" ~/.config/nvim/init.vim'
 alias drc='"$editor" ~/.dunstrc'
 
 # Get quotes
-alias moex_quote='go run /media/d/bashScripts/moex_quotes/moex_quotes.go -t '
+alias moex_quote="go run $BASHSCRIPTS_DIR/moex_quotes/moex_quotes.go -t "
 
 # Mount/unmount smb share folder
 alias msb='sudo mount.cifs $smb /media/smb/ -o user=guest,iocharset=utf8,vers=2.0'
@@ -180,6 +181,7 @@ alias cts='ssh gel0@$msa'
 
 # Programs
 alias ld='sudo lazydocker'
+alias notes="$BASHSCRIPTS_DIR/update_notes.sh"
 
 # Bash history settings
 HISTTIMEFORMAT="%h %d %H:%M:%S " # History format
