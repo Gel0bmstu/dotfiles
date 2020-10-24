@@ -63,12 +63,11 @@ mkcd () {
 # Global variables
 GOPATH="/home/gel0/go"
 GOROOT="/usr/local/go"
-PATH="$PATH:/usr/local/go/bin"
-PASSWORD_STORE_DIR='/media/d/passwords'
-SCREENSHOT_DIR='/media/d/screenshots'
-DOTFILES_DIR='/home/gel0/dotfiles'
-BASHSCRIPTS_DIR='/home/gel0/bashscripts'
-NOTES_DIR='/home/gel0/notes'
+export PASSWORD_STORE_DIR='/media/d/passwords'
+export SCREENSHOT_DIR='/media/d/screenshots'
+export DOTFILES_DIR='/home/gel0/dotfiles'
+export BASHSCRIPTS_DIR='/home/gel0/bashscripts'
+export NOTES_DIR='/home/gel0/notes'
 
 msa="35.228.159.44"
 smb="//192.168.88.1/cloud"
@@ -160,7 +159,7 @@ alias pc='pass -c'
 # Config files edit
 
 # Set text editor
-editor=nvim
+editor=vim
 
 alias pbc='"$editor" ~/.config/polybar/config'
 alias i3c='"$editor" ~/.config/i3/config'
