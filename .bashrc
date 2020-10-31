@@ -98,7 +98,7 @@ alias jctle='sudo journalctl -xb -p3'
 pmng='apt'
 
 alias in='sudo $pmng install'
-alias iny='sudo $pmng install $1 -ym'
+alias iny='sudo $pmng install $1 -y'
 alias rmv='sudo $pmng remove $1 -y'
 alias upd='sudo $pmng update -y'
 alias upg='sudo $pmng upgrade -y'
