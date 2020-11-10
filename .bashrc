@@ -63,11 +63,13 @@ mkcd () {
 # Global variables
 GOPATH="/home/gel0/go"
 GOROOT="/usr/local/go"
-export PATH="$PATH:/usr/local/go/bin"
-export PASSWORD_STORE_DIR='/media/d/passwords'
-export SCREENSHOT_DIR='/media/d/screenshots'
-export DOTFILES_DIR='/home/gel0/dotfiles'
-export BASHSCRIPTS_DIR='/home/gel0/bashscripts'
+PATH="$PATH:/usr/local/go/bin"
+PASSWORD_STORE_DIR='/media/d/passwords'
+SCREENSHOT_DIR='/media/d/screenshots'
+DOTFILES_DIR='/home/gel0/dotfiles'
+BASHSCRIPTS_DIR='/home/gel0/bashscripts'
+JOPLIN_NOTES_DIR='/home/gel0/joplin_notes'
+RAW_NOTES_DIR='/home/gel0/notes'
 
 msa="35.228.159.44"
 smb="//192.168.88.1/cloud"
@@ -95,7 +97,7 @@ alias jctl='sudo journalctl'
 alias jctle='sudo journalctl -xb -p3'
 
 # Packet manager commands
-pmng='apt'
+pmng='dnf'
 
 alias in='sudo $pmng install'
 alias iny='sudo $pmng install $1 -ym'
@@ -159,7 +161,7 @@ alias pc='pass -c'
 # Config files edit
 
 # Set text editor
-editor=nvim
+editor=vim
 
 alias pbc='"$editor" ~/.config/polybar/config'
 alias i3c='"$editor" ~/.config/i3/config'
@@ -221,6 +223,11 @@ fsfix () {
   sudo mount -o uid=1000,gid=1000 /dev/nvme0n1p8 /media/d
 }
 
+abg () {
+        abf get "$1" &&
+        cd $(cut -d '/' -f 2 <<< "$1")
+}
+
 abp () {
         if echo $PWD | grep -q "BUILD"; then
                 ptbd="$(echo $PWD | grep -o -e '^.*/BUILD')"
@@ -235,4 +242,8 @@ rmbl () {
 
 rmbd () {
         sudo rm -rf BUILD/ BUILDROOT/ RPMS/ SPECS/ SRPMS
+}
+
+rmrpm () {
+        sudo rm -rf ./*rpm
 }
