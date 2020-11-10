@@ -63,13 +63,11 @@ mkcd () {
 # Global variables
 GOPATH="/home/gel0/go"
 GOROOT="/usr/local/go"
-PATH="$PATH:/usr/local/go/bin"
-PASSWORD_STORE_DIR='/media/d/passwords'
-SCREENSHOT_DIR='/media/d/screenshots'
-DOTFILES_DIR='/home/gel0/dotfiles'
-BASHSCRIPTS_DIR='/home/gel0/bashscripts'
-JOPLIN_NOTES_DIR='/home/gel0/joplin_notes'
-RAW_NOTES_DIR='/home/gel0/notes'
+export PASSWORD_STORE_DIR='/media/d/passwords'
+export SCREENSHOT_DIR='/media/d/screenshots'
+export DOTFILES_DIR='/home/gel0/dotfiles'
+export BASHSCRIPTS_DIR='/home/gel0/bashscripts'
+export NOTES_DIR='/home/gel0/notes'
 
 msa="35.228.159.44"
 smb="//192.168.88.1/cloud"
@@ -100,7 +98,7 @@ alias jctle='sudo journalctl -xb -p3'
 pmng='dnf'
 
 alias in='sudo $pmng install'
-alias iny='sudo $pmng install $1 -ym'
+alias iny='sudo $pmng install $1 -y'
 alias rmv='sudo $pmng remove $1 -y'
 alias upd='sudo $pmng update -y'
 alias upg='sudo $pmng upgrade -y'
@@ -171,7 +169,7 @@ alias nvrc='"$editor" ~/.config/nvim/init.vim'
 alias drc='"$editor" ~/.dunstrc'
 
 # Get quotes
-alias moex_quote='go run /media/d/bashScripts/moex_quotes/moex_quotes.go -t '
+alias moex_quote="go run $BASHSCRIPTS_DIR/moex_quotes/moex_quotes.go -t "
 
 # Mount/unmount smb share folder
 alias msb='sudo mount.cifs $smb /media/smb/ -o user=guest,iocharset=utf8,vers=2.0'
@@ -182,6 +180,7 @@ alias cts='ssh gel0@$msa'
 
 # Programs
 alias ld='sudo lazydocker'
+alias notes="$BASHSCRIPTS_DIR/update_notes.sh"
 
 # Bash history settings
 HISTTIMEFORMAT="%h %d %H:%M:%S " # History format

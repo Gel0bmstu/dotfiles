@@ -233,9 +233,10 @@ bindsym $mod+r mode "resize"
 #        status_command i3status
 #}
 
-# Control screen brightness
+# Control screen params 
 bindsym XF86MonBrightnessDown exec sudo light -U 5
 bindsym XF86MonBrightnessUp exec sudo light -A 5
+bindsym XF86Display exec sudo arandr
 
 #bindsym XF86AudioRaiseVolume exec amixer -q sset Master 3%+
 #bindsym XF86AudioLowerVolume exec amixer -q sset Master 3%-
