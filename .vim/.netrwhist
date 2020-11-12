@@ -1,3 +1,6 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =1
+let g:netrw_dirhistcnt =4
+let g:netrw_dirhist_4='/var/lib/mock/rosa2019.1-x86_64/result'
+let g:netrw_dirhist_3='/var/lib/mock/rosa2019.1-x86_64'
+let g:netrw_dirhist_2='/var/lib/mock/rosa2019.1-x86_64/result'
 let g:netrw_dirhist_1='/home/omv/vsos_java/lucene4/.git'
