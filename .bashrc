@@ -124,7 +124,7 @@ alias view="feh -dFZ"
 alias copy="xclip -selection c"
 alias upload="curl -F \"sprunge=<-\" http://sprunge.us"
 
-alias e="$editor"
+alias e='$editor'
 # alias cal="gcal --starting-day=1"
 
 alias h="history"
