@@ -123,12 +123,14 @@ alias rce="$BASHSCRIPTS_DIR/rosa_container_enter.sh"
 alias view='feh -dFZ' 
 alias copy='xclip -selection c'
 alias upload="curl -F 'sprunge=<-' http://sprunge.us"
+alias gcp="python3 $BASHSCRIPTS_DIR/gcp.py"
+alias killall="ps aux | grep $1 | awk '{print $2}' | sed ':a;N;$!ba;s/\n/ /g' | xargs kill"
 
 alias e='$editor'
 # alias cal='gcal --starting-day=1'
 
 alias h='history'
-alias hg='history | grep $1 --color=auto' 
+alias hg="history | grep $1 --color=auto" 
 
 # VPN 
 alias vpn='sudo openvpn /home/gel0/vpn/vpn.ovpn'

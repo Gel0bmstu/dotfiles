@@ -65,10 +65,10 @@ bindsym XF86Favorites exec --no-startup-id systemctl suspend
 exec sudo mount -o uid=1000,gid=1000 /dev/nvme0n1p8 /media/d
 
 # Print screens scripts
-bindsym --release ctrl+Print exec /home/gel0/bashscripts/screenshots/areaPrtScr
-bindsym --release $mod+Print exec /home/gel0/bashscripts/screenshots/prtScrUploader
-bindsym --release Print exec /home/gel0/bashscripts/screenshots/prtScr
-bindsym --release ctrl+Shift+Print exec flameshot gui
+bindsym --release ctrl+Print exec SCREENSHOT_DIR=$SCREENSHOT_DIR /home/gel0/bashscripts/screenshots/areaPrtScr
+bindsym --release $mod+Print exec SCREENSHOT_DIR=$SCREENSHOT_DIR /home/gel0/bashscripts/screenshots/prtScrUploader
+bindsym --release Print exec SCREENSHOT_DIR=$SCREENSHOT_DIR /home/gel0/bashscripts/screenshots/prtScr
+bindsym --release ctrl+Shift+Print exec deepin-screenshot 
 # bindsym $mod+n exec cd $SCREENSHOT_DIR
 
 # Dmenu pass script
