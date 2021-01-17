@@ -64,6 +64,9 @@ bindsym XF86Favorites exec --no-startup-id systemctl suspend
 # exec sudo mount -o uid=1000,gid=1000 /dev/sda4 /media/c
 exec sudo mount -o uid=1000,gid=1000 /dev/nvme0n1p8 /media/d
 
+# Increase thinkpad touchpad sense
+exec /home/gel0/bashscripts/touchpad_sense_up.sh 0.4
+
 # Print screens scripts
 bindsym --release ctrl+Print exec SCREENSHOT_DIR=$SCREENSHOT_DIR /home/gel0/bashscripts/screenshots/areaPrtScr
 bindsym --release $mod+Print exec SCREENSHOT_DIR=$SCREENSHOT_DIR /home/gel0/bashscripts/screenshots/prtScrUploader

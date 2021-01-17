@@ -183,6 +183,7 @@ alias cts='ssh gel0@$msa'
 # Programs
 alias ld='sudo lazydocker'
 alias notes="$BASHSCRIPTS_DIR/update_notes.sh"
+alias mt="$BASHSCRIPTS_DIR/math_trainer.py"
 
 # Bash history settings
 HISTTIMEFORMAT="%h %d %H:%M:%S " # History format
