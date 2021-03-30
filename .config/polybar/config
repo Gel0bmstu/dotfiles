@@ -56,9 +56,9 @@ padding-right = 2
 module-margin-left = 1
 module-margin-right = 1
 
-;font-size = 10;
+font-size = 8.5;2
 
-font-0 = Hack:pixelsize=8.5;2
+font-0 = SF Mono:pixelsize=8.5;2
 font-1 = Wuncon Siji:pixelsize=8.5;2
 font-2 = Font Awesome 5 Free Solid:pixelsize=7;2
 font-3 = Font Awesome 5 Brands:pixelsize=8.5;2

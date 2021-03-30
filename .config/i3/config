@@ -40,7 +40,7 @@ exec --no-startup-id nm-applet
 # exec --no-startup-id "i3-msg 'workspace 3; append_layout /home/gel0/.i3/workspace-3.json'"
 
 #Desktop bg set
-exec_always  feh --bg-scale ~/bg.png
+exec_always  feh --bg-scale ~/dotfiles/bg.png
 
 # WAN enable
 exec dhcpcd

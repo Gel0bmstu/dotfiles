@@ -136,7 +136,7 @@ alias h='history'
 alias hg="history | grep $1 --color=auto" 
 
 # VPN 
-alias vpn="sudo openvpn $HOME/vpn/vpn.ovpn"
+alias vpn="sudo openvpn /media/d/vpn/vpn.ovpn"
 alias vpnitc="sudo openvpn ~/vpn/solovyov.ovpn"
 alias vpnfr="sudo openvpn /media/d/vpn/vpnbook-fr1-tcp80"
 
