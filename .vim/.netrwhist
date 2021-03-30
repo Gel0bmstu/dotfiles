@@ -1,5 +1,6 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =6
+let g:netrw_dirhistcnt =7
+let g:netrw_dirhist_7='/home/gel0/notes/.git'
 let g:netrw_dirhist_6='/etc/grub.d'
 let g:netrw_dirhist_5='/media/d/work/rosa/pkg_addon/.git'
 let g:netrw_dirhist_4='/media/d/112/kursovaya/.git'
