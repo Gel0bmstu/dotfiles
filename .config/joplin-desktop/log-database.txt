@@ -31532,3 +31532,5 @@ xinput --set-prop 12 'libinput Accel Speed' 0.4
 2021-03-30 19:06:32: "Settings have been saved."
 2021-03-30 19:11:32: "Saving settings..."
 2021-03-30 19:11:33: "Settings have been saved."
+2021-03-30 19:16:33: "Saving settings..."
+2021-03-30 19:16:34: "Settings have been saved."
