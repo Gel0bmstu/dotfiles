@@ -3,3 +3,4 @@
 	name = Gel0bmstu
 [core]
 	excludesfile = ~/.gitignore_global
+	autocrlf = input
