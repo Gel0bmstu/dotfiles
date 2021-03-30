@@ -3,3 +3,9 @@
 
 .vim/plugged/
 .vim/undodir/
+
+.config/*
+!.config/i3/
+!.config/polybar/
+!.config/nvim/
+!.config/font*

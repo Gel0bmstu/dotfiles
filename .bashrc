@@ -69,7 +69,7 @@ export DOTFILES_DIR='/home/gel0/dotfiles'
 export BASHSCRIPTS_DIR='/home/gel0/bashscripts'
 export NOTES_DIR='/home/gel0/notes'
 
-msa="35.228.159.44"
+msa="35.228.88.242"
 smb="//192.168.88.1/cloud"
 
 # System commands
@@ -119,6 +119,9 @@ alias te='trans :en "$@"'
 alias dpsa='sudo docker ps -a'
 alias dps='sudo docker ps'
 alias rce="$BASHSCRIPTS_DIR/rosa_container_enter.sh"
+
+# VM commands
+alias vme="$BASHSCRIPTS_DIR/vm_ssh_enter.sh"
 
 alias view='feh -dFZ' 
 alias copy='xclip -selection c'

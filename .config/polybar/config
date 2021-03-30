@@ -541,7 +541,7 @@ label-font = 5
 [module/moex1]
 type = custom/script
 
-exec = "go run /home/gel0/bashscripts/moex_quotes/moex_quotes.go -t SBERP"
+exec = "go run /home/gel0/bashscripts/moex_quotes/moex_quotes.go -t GMKN"
 interval = 15
 
 ; ---------------------------------------------------------
