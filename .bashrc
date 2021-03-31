@@ -60,6 +60,9 @@ mkcd () {
   mkdir "$1" && cd "$1";
 }
 
+# System setting
+# LANG="en_US.UTF-8"
+
 # Global variables
 GOPATH="$HOME/go"
 GOROOT="/usr/local/go"
@@ -110,10 +113,11 @@ alias sin="sudo snap install"
 alias srmv="sudo snap remove $1"
 
 # Translate commands
-alias trb="trans :ru --brief \"$@\""
-alias teb="trans :en --brief \"$@\""
-alias tr="trans :ru \"$@\""
-alias te="trans :en \"$@\""
+alias tt="echo $@"
+alias trb="/usr/bin/trans :ru --brief $@"
+alias teb="/usr/bin/trans :en --brief $@"
+alias tr="/usr/bin/trans :ru $@"
+alias te="/usr/bin/trans :en $@"
 
 # Docker commands
 alias dpsa="sudo docker ps -a"
@@ -126,8 +130,11 @@ alias vme="$BASHSCRIPTS_DIR/vm_ssh_enter.sh"
 alias view='feh -dFZ' 
 alias copy='xclip -selection c'
 alias upload="curl -F 'sprunge=<-' http://sprunge.us"
-alias gcp="python3 $BASHSCRIPTS_DIR/gcp.py"
 alias killall="ps aux | grep $1 | awk '{print $2}' | sed ':a;N;$!ba;s/\n/ /g' | xargs kill"
+
+# Git commands
+alias gcp="python3 $BASHSCRIPTS_DIR/gcp.py"
+alias gas="$BASHSCRIPTS_DIR/git_autosquash.sh"
 
 alias e='$editor'
 # alias cal="gcal --starting-day=1"
