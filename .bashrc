@@ -171,7 +171,7 @@ alias pc="pass -c"
 # Config files edit
 
 # Set text editor
-editor=vim
+editor=micro
 
 alias pbc="$editor ~/.config/polybar/config"
 alias i3c="$editor ~/.config/i3/config"
