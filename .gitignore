@@ -10,3 +10,4 @@
 !.config/polybar/
 !.config/nvim/
 !.config/font*
+!.config/rofi*
