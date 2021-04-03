@@ -3,4 +3,10 @@
     "CtrlUnderscore": "lua:comment.comment",
     "Alt-s": "Save,Quit",
     "Alt-q": "Quit",
+    "Alt-d": "DeleteWordRight",
+    "AltShift-Up": "SpawnMultiCursorUp",
+    "AltShift-Down": "SpawnMultiCursorDown",
+	"Alt-h": "HSplit",
+	"Alt-v": "VSplit",
+	"Ctrl-k": "DeleteLine",
 }

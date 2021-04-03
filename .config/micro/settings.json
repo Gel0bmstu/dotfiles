@@ -1,1 +1,7 @@
-{}
+{
+    "autosu": true,
+    "diffgutter": true,
+    "softwrap": true,
+    "tabmovement": true,
+    "tabstospaces": true
+}
