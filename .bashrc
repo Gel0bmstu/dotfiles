@@ -130,7 +130,7 @@ alias vme="$BASHSCRIPTS_DIR/vm_ssh_enter.sh"
 alias view='feh -dFZ' 
 alias copy='xclip -selection c'
 alias upload="curl -F 'sprunge=<-' http://sprunge.us"
-alias killall="ps aux | grep $1 | awk '{print $2}' | sed ':a;N;$!ba;s/\n/ /g' | xargs kill"
+alias ka=$BASHSCRIPTS_DIR/killall.sh
 
 # Git commands
 alias gcp="python3 $BASHSCRIPTS_DIR/gcp.py"

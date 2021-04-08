@@ -6,6 +6,7 @@
 
 .config/*
 !.config/i3/
+!.config/dunst/
 !.config/micro/
 !.config/polybar/
 !.config/nvim/
