@@ -13,5 +13,5 @@
 !.config/font*
 !.config/rofi/
 !.config/libvirt
-!.config/google-chrome-unstable/Default/Extensions
-!.config/google-chrome-unstable/Default/Preferences
+# !.config/google-chrome-unstable/Default/Extensions
+# !.config/google-chrome-unstable/Default/Preferences
