@@ -7,9 +7,11 @@
 .config/*
 !.config/i3/
 !.config/dunst/
-!.config/micro/
+!.config/micro/*.json
 !.config/polybar/
 !.config/nvim/
 !.config/font*
 !.config/rofi/
 !.config/libvirt
+!.config/google-chrome-unstable/Default/Extensions
+!.config/google-chrome-unstable/Default/Preferences
