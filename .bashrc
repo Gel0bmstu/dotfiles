@@ -172,7 +172,7 @@ alias pc="pass -c"
 # Config files edit
 
 # Set text editor
-editor=micro
+editor=vim
 
 alias pbc="$editor ~/.config/polybar/config"
 alias i3c="$editor ~/.config/i3/config"
@@ -180,6 +180,7 @@ alias brc="$editor ~/.bashrc"
 alias vrc="$editor ~/.vimrc"
 alias nvrc="$editor ~/.config/nvim/init.vim"
 alias drc="$editor ~/.dunstrc"
+alias es="$editor ./*.spec"
 
 # Get quotes
 alias moex_quote="go run $BASHSCRIPTS_DIR/moex_quotes/moex_quotes.go -t "
@@ -197,10 +198,14 @@ alias notes="$BASHSCRIPTS_DIR/update_notes.sh"
 alias mt="$BASHSCRIPTS_DIR/math_trainer.py"
 alias updall="$BASHSCRIPTS_DIR/update_all_configs.sh"
 
+
+
 # Bash history settings
+# Add a WDP var (Working Directory Path)
 HISTTIMEFORMAT="%h %d %H:%M:%S " # History format
 HISTSIZE=10000                   # Max fixstory command store
 HISTFILESIZE=10000               # Max history line store
+HISTCONTROL=ignoredups           # Ignoryng repeated commads
 PROMPT_COMMAND="history -a"      # Save commands in history after execution
 
 # Autocd by typing only path to dir
@@ -237,17 +242,18 @@ fsfix () {
   sudo mount -o uid=1000,gid=1000 /dev/nvme0n1p8 /media/d
 }
 
-abg () {
-        abf get "$1" &&
-        cd $(cut -d "/" -f 2 <<< "$1")
+fp() {
+      git format-patch master -o ../../
 }
 
-abp () {
-        if echo $PWD | grep -q "BUILD"; then
-                ptbd="$(echo $PWD | grep -o -e "^.*/BUILD")"
-                cd "$ptbd/.."
-        fi
-        abb buildp && cd ./BUILD && cd $(ls -d * | head -n 1) && ptch
+gfp() {
+        git commit -am "$1" && fp
+}
+
+abg () {
+        abb clone "$1" &&
+        cd "$1"
+        # cd $(cut -d "/" -f 2 <<< "$1")
 }
 
 rmbl () {
@@ -264,6 +270,31 @@ rmrpm () {
 
 rmall() {
         rmbl ; rmbd ; rmrpm
+}
+
+b() {
+        wd=$(pwd | awk -F/ '{ print $NF }')
+        LC_ALL=en_US.UTF-8 sudo abb build --nodeps \
+                && yes | sudo mv -f RPMS/*/*.rpm ./ \
+                && rmbl && rmbd && \
+                sudo mkdir -p /root/rosa_e2k_repo/$wd && \
+                yes| sudo cp -rf ./*.rpm /root/rosa_e2k_repo/$wd/
+}
+
+abp () {
+        if echo $PWD | grep -q "BUILD"; then
+                ptbd="$(echo $PWD | grep -o -e "^.*/BUILD")"
+                cd "$ptbd/.."
+        fi
+        rmbd && abb buildp && cd ./BUILD && cd $(ls -d * | head -n 1) && ptch
+}
+
+files () {
+        root="."
+        if [ ! -z $1 ]; then
+                root=$1
+        fi
+        ls $root/*.rpm | while read p; do rpm -qlp $p >> $root/files; done
 }
 
 wpr () {
