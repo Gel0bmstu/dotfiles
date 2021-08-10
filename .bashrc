@@ -72,7 +72,7 @@ export DOTFILES_DIR="$HOME/dotfiles"
 export BASHSCRIPTS_DIR="$HOME/bashscripts"
 export NOTES_DIR="$HOME/notes"
 
-msa="35.228.88.242"
+msa="165.22.26.5"
 smb="//192.168.88.1/cloud"
 
 # System commands
@@ -93,6 +93,7 @@ alias sctlss="sudo systemctl status"
 alias sctlsp="sudo systemctl stop"
 alias sctlel="sudo systemctl enable"
 alias sctldl="sudo systemctl disable"
+alias sctldr="systemctl daemon-reload"
 
 alias jctl="sudo journalctl"
 alias jctle="sudo journalctl -xb -p3"
@@ -264,3 +265,18 @@ rmrpm () {
 rmall() {
         rmbl ; rmbd ; rmrpm
 }
+
+wpr () {
+        if [ -f $1 ] || [ -d $1 ]; then
+            path=$1
+        else
+                path=$(find /usr/ -name "$*")
+                if [ -z $path ]; then
+                        path=$(find /lib* -name "$1*")
+                fi       
+        fi
+        echo $path
+        rpm -q --whatprovides $path
+}
+
+alias c2e="$BASHSCRIPTS_DIR/copytoe2k.sh"

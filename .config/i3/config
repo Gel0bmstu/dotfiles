@@ -25,6 +25,9 @@ font pango:DejaVu Sans Mono 8
 # screen before suspend. Use loginctl lock-session to lock your screen.
 # exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
+# Turn off any system beep's
+exec xset b off 
+
 exec xrdb -merge .Xresources
 
 # Hide title bar on top of the apps
@@ -72,7 +75,7 @@ exec /home/gel0/bashscripts/touchpad_sense_up.sh 0.4
 bindsym --release ctrl+Print exec SCREENSHOT_DIR=$SCREENSHOT_DIR /home/gel0/bashscripts/screenshots/areaPrtScr
 bindsym --release $mod+Print exec SCREENSHOT_DIR=$SCREENSHOT_DIR /home/gel0/bashscripts/screenshots/prtScrUploader
 bindsym --release Print exec SCREENSHOT_DIR=$SCREENSHOT_DIR /home/gel0/bashscripts/screenshots/prtScr
-bindsym --release ctrl+Shift+Print exec $BASHSCRIPT_DIR/make_deepin_screenshot.sh
+bindsym --release $mod+shift+Print exec /home/gel0/bashscripts/make_deepin_screenshot.sh
 # bindsym $mod+n exec cd $SCREENSHOT_DIR
 
 # Dmenu pass script
@@ -151,6 +154,14 @@ bindsym $mod+a focus parent
 
 # focus the child container
 #bindsym $mod+d focus child
+
+# Move window to scratchpad
+bindsym $mod+Shift+minus move scratchpad
+
+# Show the first scratchpad window
+bindsym $mod+minus scratchpad show
+
+bindsym $mod+m exec /home/gel0/bashscripts/hdmi-checker.sh
 
 # class                 border  backgr. text    indicator child_border
 # client.focused          #000000 #000000 #ffffff #000000   #000000
@@ -246,7 +257,7 @@ bindsym XF86Display exec sudo arandr
 #bindsym XF86AudioLowerVolume exec amixer -q sset Master 3%-
 
 # Autorun polybar
-#exec_always --no-startup-id /home/gel0/.config/polybar/launch.sh
+#exec_always --no-startup-id /home/gel0/bashscripts/run-polybar.sh
 
 exec_always setxkbmap -layout us,ru -option grp:alt_shift_toggle
 
