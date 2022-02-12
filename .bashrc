@@ -65,6 +65,7 @@ mkcd () {
 
 # Global variables
 GOPATH="$HOME/go"
+# GOPATH="/usr/local/go"
 GOROOT="/usr/local/go"
 export PASSWORD_STORE_DIR="/media/d/passwords"
 export SCREENSHOT_DIR="/media/d/screenshots"
@@ -85,6 +86,9 @@ alias uprt="sudo netstat -ntulp | g LISTEN"
 alias fprt="sudo netstat -ntulp | grep -v LISTEN"
 alias sudo="sudo "
 
+# utils
+alias ext="$BASHSCRIPTS_DIR/extract.sh"
+
 alias sctl="sudo systemctl"
 alias sctlst="sudo systemctl start"
 alias sctlrl="sudo systemctl reload"
@@ -99,7 +103,7 @@ alias jctl="sudo journalctl"
 alias jctle="sudo journalctl -xb -p3"
 
 # Packet manager commands
-pmng="dnf"
+pmng="apt-get"
 
 alias in="sudo $pmng install"
 alias iny="sudo $pmng install $1 -y"
@@ -147,9 +151,10 @@ alias hg="history | grep $1 --color=auto"
 alias vpn="sudo openvpn /media/d/vpn/vpn.ovpn"
 alias vpnitc="sudo openvpn ~/vpn/solovyov.ovpn"
 alias vpnfr="sudo openvpn /media/d/vpn/vpnbook-fr1-tcp80"
+alias vpndev="sudo openvpn /media/d/vpn/dev-selectel.ovpn"
 
 # CD to dir
-alias rsaw="cd /media/d/work/rosa/"
+alias wfmt="cd /media/d/work/wfmt/"
 alias stud="cd /media/d/112/"
 alias tech="cd /media/d/tp/4"
 alias dwnl="cd /media/d/downloads"
@@ -158,9 +163,6 @@ alias dotf="cd $DOTFILES_DIR"
 alias bshs="cd $BASHSCRIPTS_DIR"
 alias prts="cd $SCREENSHOT_DIR"
 alias prjc="cd /media/d/projects"
-
-# Wifi settings
-alias wfm="sudo wifi-menu"
 
 # Passwords control
 alias p="pass insert -m"
@@ -178,6 +180,7 @@ alias pbc="$editor ~/.config/polybar/config"
 alias i3c="$editor ~/.config/i3/config"
 alias brc="$editor ~/.bashrc"
 alias vrc="$editor ~/.vimrc"
+alias mrc="$editor ~/.config/micro/settings.json"
 alias nvrc="$editor ~/.config/nvim/init.vim"
 alias drc="$editor ~/.dunstrc"
 alias es="$editor ./*.spec"
@@ -197,8 +200,6 @@ alias ld="sudo lazydocker"
 alias notes="$BASHSCRIPTS_DIR/update_notes.sh"
 alias mt="$BASHSCRIPTS_DIR/math_trainer.py"
 alias updall="$BASHSCRIPTS_DIR/update_all_configs.sh"
-
-
 
 # Bash history settings
 # Add a WDP var (Working Directory Path)
@@ -311,3 +312,5 @@ wpr () {
 }
 
 alias c2e="$BASHSCRIPTS_DIR/copytoe2k.sh"
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:/usr/local/go/bin:$GOPATH/bin:$PATH"

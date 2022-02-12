@@ -1,12 +1,13 @@
 {
     "Alt-/": "lua:comment.comment",
-    "CtrlUnderscore": "lua:comment.comment",
-    "Alt-s": "Save,Quit",
-    "Alt-q": "Quit",
     "Alt-d": "DeleteWordRight",
-    "CtrlShift-Up": "SpawnMultiCursorUp",
+    "Alt-h": "HSplit",
+    "Alt-q": "Quit",
+    "Alt-s": "Save,Quit",
+    "Alt-v": "VSplit",
+    "Ctrl-k": "DeleteLine",
     "CtrlShift-Down": "SpawnMultiCursorDown",
-	"Alt-h": "HSplit",
-	"Alt-v": "VSplit",
-	"Ctrl-k": "DeleteLine",
+    "CtrlShift-Up": "SpawnMultiCursorUp",
+    "CtrlUnderscore": "lua:comment.comment",
+    "F6": "command-edit:gorename "
 }

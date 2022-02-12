@@ -1,9 +1,12 @@
 {
     "autosu": true,
     "diffgutter": true,
+    "parsecursor": true,
     "savecursor": true,
     "saveundo": true,
+    "scrollbar": true,
     "softwrap": true,
     "tabmovement": true,
-    "tabstospaces": true
+    "tabstospaces": true,
+    "wordwrap": true
 }

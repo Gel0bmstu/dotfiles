@@ -1,5 +1,7 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =0
+let g:netrw_dirhistcnt =2
+let g:netrw_dirhist_2='/media/d/work/wfmt/jamjob/backend/self-employed/server/internal/repository'
+let g:netrw_dirhist_1='/home/gel0/i3-radius/autom4te.cache'
 let g:netrw_dirhist_0='/home/gel0/test/gdevel/usr/include/asm'
 let g:netrw_dirhist_9='/root/import/glibc-mcst'
 let g:netrw_dirhist_8='/home/betcher/cmake/RPMS'
@@ -8,5 +10,3 @@ let g:netrw_dirhist_6='/root/rosa-scripts'
 let g:netrw_dirhist_5='/etc/yum.repos.d'
 let g:netrw_dirhist_4='/home/betcher/NEED'
 let g:netrw_dirhist_3='/root/import/basesystem-mandatory/vim'
-let g:netrw_dirhist_2='/root/import/python-six'
-let g:netrw_dirhist_1='/etc/yum.repos.d'
