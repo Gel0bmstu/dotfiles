@@ -73,7 +73,8 @@ export DOTFILES_DIR="$HOME/dotfiles"
 export BASHSCRIPTS_DIR="$HOME/bashscripts"
 export NOTES_DIR="$HOME/notes"
 
-msa="165.22.26.5"
+#msa="165.22.26.5"
+msa="5.45.127.218"
 smb="//192.168.88.1/cloud"
 
 # System commands
@@ -85,6 +86,7 @@ alias rld=". ~/.bashrc"
 alias uprt="sudo netstat -ntulp | g LISTEN"
 alias fprt="sudo netstat -ntulp | grep -v LISTEN"
 alias sudo="sudo "
+alias arc="sudo $BASHSCRIPTS_DIR/append_resolve.sh"
 
 # utils
 alias ext="$BASHSCRIPTS_DIR/extract.sh"
@@ -105,9 +107,9 @@ alias jctle="sudo journalctl -xb -p3"
 # Packet manager commands
 pmng="apt-get"
 
-alias in="sudo $pmng install"
-alias iny="sudo $pmng install $1 -y"
-alias rmv="sudo $pmng remove $1 -y"
+alias in="sudo $pmng -S"
+alias iny="sudo $pmng install -y $1"
+alias rmv="sudo $pmng remove $1"
 alias upd="sudo $pmng update -y"
 alias upg="sudo $pmng upgrade -y"
 alias sch="sudo $pmng search $1"
@@ -121,7 +123,7 @@ alias srmv="sudo snap remove $1"
 alias tt="echo $@"
 alias trb="/usr/bin/trans :ru --brief $@"
 alias teb="/usr/bin/trans :en --brief $@"
-alias tr="/usr/bin/trans :ru $@"
+# alias tr="/usr/bin/trans :ru $@"
 alias te="/usr/bin/trans :en $@"
 
 # Docker commands
@@ -193,7 +195,7 @@ alias msb="sudo mount.cifs $smb /media/smb/ -o user=guest,iocharset=utf8,vers=2.
 alias umsb="sudo umount $smb"
 
 # Connect to my vps
-alias cts="ssh gel0@$msa"
+alias cts="ssh root@$msa"
 
 # Programs
 alias ld="sudo lazydocker"
@@ -314,3 +316,7 @@ wpr () {
 alias c2e="$BASHSCRIPTS_DIR/copytoe2k.sh"
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:/usr/local/go/bin:$GOPATH/bin:$PATH"
+
+# BEGIN_KITTY_SHELL_INTEGRATION
+if test -n "$KITTY_INSTALLATION_DIR" -a -e "$KITTY_INSTALLATION_DIR/shell-integration/bash/kitty.bash"; then source "$KITTY_INSTALLATION_DIR/shell-integration/bash/kitty.bash"; fi
+# END_KITTY_SHELL_INTEGRATION

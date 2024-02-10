@@ -4,3 +4,8 @@
 [core]
 	excludesfile = ~/.gitignore_global
 	autocrlf = input
+[pager]
+	diff = false
+	branch = false
+[init]
+	templatedir = ~/.git-templates

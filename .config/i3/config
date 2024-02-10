@@ -55,7 +55,7 @@ font pango:monospace 10
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec konsole
+bindsym $mod+Return exec gnome-terminal 
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -181,6 +181,12 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+# calc
+bindsym $mod+Shift+p exec speedcrunch
+for_window [class="SpeedCrunch"] floating enable
+
+# pass
+bindsym --release $mod+p exec /home/gel0/bashscripts/pass.sh
 
 # rofi
 bindsym ctrl+space exec rofi -show drun
@@ -198,6 +204,9 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ to
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 bindsym XF86Favorites exec --no-startup-id xset dpms force off
 
+# clipboard
+#bindsym $mod+a exec /home/gel0/bashscripts/clipboard/replace_new_line_by_comma_space.sh
+#bindsym $mod+b exec /home/gel0/bashscripts/clipboard/replace_new_line_by_space.sh
 
 # custom scripts
 bindsym $mod+m exec /home/gel0/bashscripts/hdmi-checker.sh
@@ -212,9 +221,10 @@ bindsym --release $mod+shift+Print exec /home/gel0/bashscripts/make_deepin_scree
 
 #********************************************************************************
 
-exec --no-startup-id feh --bg-scale ~/bg.jpg
-exec --no-startup-id compton
+exec --no-startup-id feh --bg-scale ~/bg-1.jpg
+exec --no-startup-id picom --experimental-backends 
 exec --no-startup-id latte-dock 
+exec --no-startup-id nm-applet
 exec --no-startup-id /home/gel0/.config/polybar/launch.sh --blocks 
 exec_always setxkbmap -layout us,ru -option grp:alt_shift_toggle
 
@@ -246,11 +256,12 @@ hide_edge_borders none
 
 # Set inner/outer gaps
 gaps inner 7
-gaps outer 0
+gaps outer 2
 
 # Activate smart borders (always)
 smart_borders on
 smart_gaps on
 smart_gaps inverse_outer
+
 
 

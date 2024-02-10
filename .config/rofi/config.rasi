@@ -5,7 +5,7 @@ configuration {
 }
  
 * {
-    lines: 15;
+    lines: 10;
     columns: 1;
     background-color: #00000065;
     border-color: #00000000;
@@ -15,10 +15,10 @@ configuration {
  
 #window {
     border: 0;
-    border-radius: 4px;
-    padding: 40;
-    width: 30%;
-    height: 50%;
+    border-radius: 5px;
+    padding: 0px 20px 0px 20px;
+    width: 40%;
+    height: 35%;
 }
  
 #mainbox {
@@ -26,7 +26,7 @@ configuration {
     children: [inputbar, listview];
     spacing: 10px;
     /*margin: 20%;*/
-    padding: 30px 0;
+    padding: 20px 0;
     border: 1px;
     border-color: @base0D;
 }
@@ -38,7 +38,7 @@ configuration {
     border: 0px;
     spacing: 5px;
     scrollbar: false;
-    padding: 10px 10px 0px;
+    // padding: 0px 10px 0px;
 }
  
 #element {
